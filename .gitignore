@@ -1,0 +1,4 @@
+*.html
+*.sql
+.idea/
+node_modules/
