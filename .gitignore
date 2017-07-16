@@ -1,4 +1,5 @@
 *.html
 *.sql
+*.txt
 .idea/
 node_modules/
