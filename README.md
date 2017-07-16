@@ -4,7 +4,7 @@ Esta utilidad inspecciona documentos HTML, extrayendo los textos a traducir
 y genera a partir de estos datos un script SQL para su inserción en BBDD.
 
 El SQL generado insertará en la tabla **BDPTB079_IDIOMA**, después de un borrado preventivo,
-los siguientes idiomas como preparación a su traducción:
+los siguientes idiomas como preparació a su traducción:
 - Catalán (*ca_ES*).
 - Alemán (*de_DE*).
 - Inglés (*en_UK*).
@@ -58,7 +58,7 @@ Para localizar estos textos se deberán cumplir ciertas convenciones:
 ### Opciones
 
 * **-f \<fileName>**       Nombre del archivo a generar con el script de sql, por defecto `text_inserts.sql`.
-* **-s \<schema>**         Nombre del esquema de BBDD a emplear, por defecto `BEL.
+* **-s \<schema>**         Nombre del esquema de BBDD a emplear, por defecto `BEL`.
 * **-c \<comment>**        Comentario a introducir en cada insert de la tabla, por defecto `Creado con Text2SQL`.
 * **-p \<paramName>**      Nombre del parámetro de traducciones a localizar en el documento HTML, por defecto `data-translate`.
   
