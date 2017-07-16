@@ -2,7 +2,7 @@
   "name": "text2sql",
   "version": "1.0.0",
   "description": "Converts HTML text nodes to SQL inserts for i18n.",
-  "main": "src/tex2sql.js",
+  "main": "./src/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/davidgarsan/text2sql.git"
@@ -21,5 +21,8 @@
   "homepage": "https://github.com/davidgarsan/text2sql#readme",
   "dependencies": {
     "jsdom": "^11.1.0"
+  },
+  "bin": {
+    "text2sql": "./src/index.js"
   }
 }

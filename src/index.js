@@ -1,4 +1,4 @@
-// node index.js PATH [-f FILE] [-s SCHEME] [-c COMMENT] [-p PARAM_NAME]
+#!/usr/bin/env node
 
 const jsdom = require('jsdom');
 const fs = require('fs');
