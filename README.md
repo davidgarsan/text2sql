@@ -4,7 +4,7 @@ Esta utilidad inspecciona documentos HTML, extrayendo los textos a traducir
 y genera a partir de estos datos un script SQL para su inserción en BBDD.
 
 El SQL generado insertará en la tabla **BDPTB079_IDIOMA**, después de un borrado preventivo,
-los siguientes idiomas como preparació a su traducción:
+los siguientes idiomas como preparación a su traducción:
 - Catalán (*ca_ES*).
 - Alemán (*de_DE*).
 - Inglés (*en_UK*).
@@ -36,12 +36,12 @@ Para localizar estos textos se deberán cumplir ciertas convenciones:
 1. Clonar Text2SQL del repositorio git:
 
   ```
-  git clone https://github.com/davidgarsan/text2sql.git
+  git clone http://lnxcdv02:90/front-end/rsi-text2sql.git
   ```
 1. Instalar la herramienta globalmente: 
 
   ```
-  npm install -g ./text2sql 
+  npm install -g ./rsi-text2sql 
   ```
 1. Una vez finalizada la instalación será posible ejecutarla desde cualquier directorio:
 
