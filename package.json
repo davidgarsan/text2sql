@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/davidgarsan/text2sql#readme",
   "dependencies": {
+    "chalk": "^2.0.1",
+    "figlet": "^1.2.0",
     "jsdom": "^11.1.0"
   },
   "bin": {

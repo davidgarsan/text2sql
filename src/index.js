@@ -3,6 +3,8 @@
 const jsdom = require('jsdom');
 const fs = require('fs');
 const {JSDOM} = jsdom;
+const chalk = require('chalk');
+const figlet = require('figlet');
 const lang = ['ca_ES', 'de_DE', 'en_UK', 'es_ES', 'eu_ES', 'fr_FR', 'gl_ES', 'it_IT', 'pt_PT', 'va_ES'];
 let scheme = 'BEL';
 let paramName = 'data-translate';
@@ -11,9 +13,14 @@ let fileName = 'text_inserts.sql';
 const filePath = process.argv[2];
 
 if(process.argv.length == 3 && process.argv.indexOf('-h') != -1){
-  return console.log(`
-Text2SQL
 
+  console.log(
+    chalk.hex('#66cc10')(
+      figlet.textSync('Text2SQL', { horizontalLayout: 'full' })
+    )
+  );
+  console.log(chalk.bold('\nText2SQL'));
+  console.log(`
 Esta utilidad inspecciona documentos HTML, extrayendo los textos a traducir y 
 generando un script SQL para su inserción en SQL.
   
@@ -24,6 +31,7 @@ Uso:
   text2sql -c <comment>               Comentario a introducir en cada insert de la tabla, por defecto 'Creado con Text2SQL'
   text2sql -p <paramName>             Nombre del parámetro de traducciones a localizar en el documento HTML, por defecto 'data-translate'  
 `);
+  return;
 }
 
 if(filePath === undefined) {
