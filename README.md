@@ -68,7 +68,9 @@ Para localizar estos textos se deberán cumplir ciertas convenciones:
 * **-f \<fileName>**       Nombre del archivo a generar con el script de sql, por defecto `text_inserts.sql`.
 * **-s \<schema>**         Nombre del esquema de BBDD a emplear, por defecto `BEL`.
 * **-c \<comment>**        Comentario a introducir en cada insert de la tabla, por defecto `Creado con Text2SQL`.
-* **-p \<paramName>**      Nombre del parámetro de traducciones a localizar en el documento HTML, por defecto `data-translate`.
+* **-a \<paramName>**      Nombre del parámetro de traducciones a localizar en el documento HTML, por defecto `data-translate`.
+* **-o \<optionsApp>**     Texto a introducir como opción adicional relativa a la aplicación.
+* **-q**                   Oculta el reporte en consola.
   
 ### Ejemplos
 

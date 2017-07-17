@@ -21,7 +21,7 @@ module.exports = {
   getParams: function () {
     const filePath = process.argv[2];
     const appName = process.argv[3];
-    let fileName, attrName, scheme, comment, options = '';
+    let fileName, attrName, scheme, comment, options = '', quiet = false;
 
     if (filePath === undefined || !fs.existsSync(filePath)) {
       throw new Error('Se debe pasar como primer parámetro el path de un archivo HTML.');
@@ -60,6 +60,10 @@ module.exports = {
       options = DEFAULT_OPTIONS;
     }
 
+    if (process.argv.indexOf('-q') != -1) {
+      quiet = true;
+    }
+
     this.conf = {
       filePath,
       appName,
@@ -67,7 +71,8 @@ module.exports = {
       fileName,
       scheme,
       comment,
-      options
+      options,
+      quiet
     };
 
     return this.conf;
@@ -130,7 +135,7 @@ DELETE FROM ${this.getScheme() + '.'}BDPTB079_IDIOMA_APLICATIVO WHERE CODIGO in 
       if (err && err.code !== 'ENOENT') {
         throw err;
       }
-      this.report();
+      this.conf.quiet || this.report();
     })
   },
 

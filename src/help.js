@@ -62,7 +62,8 @@ module.exports = {
   -s <schema>                Nombre del esquema de BBDD a emplear (por defecto 'BEL').
   -c <comment>               Comentario a introducir en cada insert de la tabla (por defecto 'Creado con Text2SQL').
   -a <attrName>              Nombre del atributo de traducciones a localizar en el documento HTML (por defecto 'data-translate').
-  -o <optionsApp>            Texto a introducir como opción adicional relativo a la aplicación.
+  -o <optionsApp>            Texto a introducir como opción adicional relativa a la aplicación.
+  -q                         Oculta el reporte en consola.
   `);
 
     log(chalk.bold('Ejemplos:'));

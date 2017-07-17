@@ -28,5 +28,5 @@ JSDOM.fromFile(conf.filePath, {})
     const sql = utils.buildSQL(list, conf);
 
     utils.writeToSQLFile(sql, conf);
-
   }).catch(console.error);
+

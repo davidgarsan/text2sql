@@ -18,8 +18,12 @@
   "bugs": {
     "url": "https://github.com/davidgarsan/text2sql/issues"
   },
+  "scripts" : {
+    "test": "mocha --debug --colors ./test/*.js"
+  },
   "homepage": "https://github.com/davidgarsan/text2sql#readme",
   "dependencies": {
+    "chai": "^4.1.0",
     "chalk": "^2.0.1",
     "figlet": "^1.2.0",
     "jsdom": "^11.1.0"
