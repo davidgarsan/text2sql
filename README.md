@@ -1,5 +1,7 @@
 # Text2SQL
 
+[![Build Status](https://travis-ci.org/davidgarsan/text2sql.svg?branch=master)](https://travis-ci.org/davidgarsan/text2sql)
+
 Esta utilidad inspecciona documentos HTML, extrayendo los textos a traducir
 y genera a partir de estos datos un script SQL para su inserción en BBDD.
 
