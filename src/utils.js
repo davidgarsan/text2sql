@@ -135,6 +135,7 @@ DELETE FROM ${this.getScheme() + '.'}BDPTB079_IDIOMA_APLICATIVO WHERE CODIGO in 
       if (err && err.code !== 'ENOENT') {
         throw err;
       }
+      console.log(err);
       this.conf.quiet || this.report();
     })
   },

@@ -19,7 +19,9 @@
     "url": "https://github.com/davidgarsan/text2sql/issues"
   },
   "scripts": {
-    "test": "mocha --debug --colors ./test/*.js"
+    "test": "mocha --debug --colors ./test/*.js",
+    "test:watch": "mocha --debug --colors ./test/*.js -w",
+    "test:debug": "mocha --debug --colors ./test/*.js --debug-brk"
   },
   "homepage": "https://github.com/davidgarsan/text2sql#readme",
   "dependencies": {

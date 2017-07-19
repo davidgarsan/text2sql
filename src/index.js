@@ -13,12 +13,13 @@ if (process.argv.length == 3 && process.argv.indexOf('-h') != -1) {
 
 conf = utils.getParams();
 
-JSDOM.fromFile(conf.filePath, {})
+const texts = JSDOM.fromFile(conf.filePath, {})
   .then(dom => {
     let list = Array.prototype.slice.call(dom.window.document.querySelectorAll(`[${conf.attrName}]`))
       .map(
         (o) => ({key: o.getAttribute(conf.attrName), value: o.textContent.trim()})
       );
+
     const uniq = new Set();
 
     list.forEach(e => uniq.add(JSON.stringify(e)));
@@ -28,5 +29,11 @@ JSDOM.fromFile(conf.filePath, {})
     const sql = utils.buildSQL(list, conf);
 
     utils.writeToSQLFile(sql, conf);
-  }).catch(console.error);
 
+    return list;
+  })
+  .catch(console.error);
+
+module.exports = {
+  texts
+};
