@@ -1,27 +1,21 @@
+const utils = require('./common');
 const fs = require('fs');
 const chai = require('chai');
 let text2sql;
-const htmlfile = './test/test.html';
-const sqlfile = './test/test.sql';
 
 chai.expect();
 
 const expect = chai.expect;
 let textsList;
 
-const deleteSQLFile = function () {
-  const tempFile = fs.openSync(sqlfile, 'r');
-  fs.closeSync(tempFile);
-  fs.unlinkSync(sqlfile);
-};
-
-/** @test {Test2SQL} */
-describe('Invocado Test2SQL con parámetros ', () => {
+/** @test {Test2SQL#HTML} */
+describe('Invocado Test2SQL con parámetros cargando un documento HTML', () => {
   before((done) => {
-    process.argv.splice(2, 0, htmlfile);
+    utils.clearModule();
+    process.argv.splice(2, 0, utils.htmlfile);
     process.argv.splice(3, 0, 'TEST');
     process.argv.push('-f');
-    process.argv.push(sqlfile);
+    process.argv.push(utils.sqlfile);
     process.argv.push('-q');
     text2sql = require('../src/index');
     text2sql.texts.then((list) => {
@@ -29,12 +23,12 @@ describe('Invocado Test2SQL con parámetros ', () => {
       done();});
   });
 
-  after(() => deleteSQLFile());
+  after(utils.deleteSQLFile);
 
   /** @test {Test2SQL} */
   describe('Se crea un script SQL', () => {
     it('debería haberse creado un script SQL', () => {
-      const existsSQL = fs.existsSync(sqlfile);
+      const existsSQL = fs.existsSync(utils.sqlfile);
       expect(existsSQL).to.be.ok;
     });
   });
