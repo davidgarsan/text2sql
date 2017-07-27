@@ -117,6 +117,7 @@ INSERT INTO ${this.getScheme() + '.'}BDPTB079_IDIOMA (
 DELETE FROM ${this.getScheme() + '.'}BDPTB079_IDIOMA WHERE CODIGO in (\n${deletes}\n);\n\n${sqlIdioma}
 -- DELETE/INSERT BDPTB079_IDIOMA_APLICATIVO
 DELETE FROM ${this.getScheme() + '.'}BDPTB079_IDIOMA_APLICATIVO WHERE CODIGO in (\n${deletes}\n);\n\n${sqlApp}
+\nCOMMIT;
 `;
   },
 
