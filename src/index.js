@@ -20,12 +20,16 @@ ext = path.extname(conf.filePath);
 
 function buildSQL() {
   const uniq = new Set();
+  const initCount = list.length;
 
   list.forEach(e => uniq.add(JSON.stringify(e)));
 
   list = Array.from(uniq).map(e => JSON.parse(e));
 
   const sql = utils.buildSQL(list, conf);
+  const finalCount = list.length;
+
+  conf.repeated = initCount - finalCount;
 
   utils.writeToSQLFile(sql, conf);
 }
@@ -33,6 +37,7 @@ function buildSQL() {
 if(ext === '.json') {
   const absPath = path.resolve(conf.filePath);
   const json = require(absPath);
+  conf.isJSON = true;
   for (let key in json) {
     if (json.hasOwnProperty(key)) {
       list.push({ key, value: json[key] });

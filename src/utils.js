@@ -21,7 +21,7 @@ module.exports = {
   getParams: function () {
     const filePath = process.argv[2];
     const appName = process.argv[3];
-    let fileName, attrName, scheme, comment, options = '', quiet = false;
+    let fileName, attrName, scheme, comment, options = '', quiet = false, isJSON = false, repeated = 0;
 
     if (filePath === undefined || !fs.existsSync(filePath)) {
       throw new Error('Se debe pasar como primer parámetro el path de un archivo HTML.');
@@ -72,7 +72,9 @@ module.exports = {
       scheme,
       comment,
       options,
-      quiet
+      quiet,
+      isJSON,
+      repeated
     };
 
     return this.conf;
@@ -145,13 +147,21 @@ DELETE FROM ${this.getScheme() + '.'}BDPTB079_IDIOMA_APLICATIVO WHERE CODIGO in 
 
     log(chalk`
 - Aplicación: {hex('#66cc10') ${this.conf.appName}} 
-- Ruta HTML: {hex('#66cc10') ${path.resolve(this.conf.filePath)}}
+- Ruta ${this.conf.isJSON ? 'JSON' : 'HTML'}: {hex('#66cc10') ${path.resolve(this.conf.filePath)}}
 - Ruta SQL: {hex('#66cc10') ${path.resolve(this.conf.fileName)}}
-- Atributo buscado: {hex('#66cc10') ${this.conf.attrName}}  
-- Esquema de BBDD: {hex('#66cc10') ${this.conf.scheme}}
-- Textos encontrados {bold (${this.list.length})}:
-${this.list.map((o) => chalk`    {hex('#66cc10') ${o.key}:} {white ${o.value}}`).join('\n')}
+- Esquema de BBDD: {hex('#66cc10') ${this.conf.scheme}}`);
 
+    if (!this.conf.isJSON) {
+      log(chalk`- Atributo HTML buscado: {hex('#66cc10') ${this.conf.attrName}}`);
+      if (this.conf.repeated) {
+        log(chalk`- Atributos HTML repetidos: {hex('#66cc10') ${this.conf.repeated}}`);
+      }
+    }
+
+log(chalk`- Textos encontrados {bold (${this.list.length})}:
+${this.list.map((o) => chalk`    {hex('#66cc10') ${o.key}:} {white ${o.value}}`).join('\n')}
 `);
   }
 };
+
+

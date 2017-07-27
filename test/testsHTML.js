@@ -17,7 +17,7 @@ describe('Invocado Test2SQL con parámetros cargando un documento HTML', () => {
     process.argv.push('-f');
     process.argv.push(utils.sqlfile);
     process.argv.push('-q');
-    text2sql = require('../src/index');
+    text2sql = require(utils.moduleName);
     text2sql.texts.then((list) => {
       textsList = list;
       done();});
